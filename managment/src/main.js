@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 // 引入插件
 import ElementUI from 'element-ui'
+import '@/assets/css/reset.css'
+import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false //项目生产环境
 // 注册ElementUI
