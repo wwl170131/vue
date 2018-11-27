@@ -11,7 +11,7 @@ import '@/assets/css/reset.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false //项目生产环境
-// 注册ElementUI
+// 注册ElementUI 
 Vue.use(ElementUI)
 Vue.use(MyHttpServer)
 
