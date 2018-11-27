@@ -36,6 +36,9 @@ export default {
         }
       } = res.data
       if (status === 200) {
+        // 登录成功,保存token
+        localStorage.setItem('token',data.token)
+
         this.$message.success(msg);
         this.$router.push({
           name: "home"
@@ -54,7 +57,7 @@ export default {
       //     }
       //   } = res.data;
       //   // 判断状态码
-      //   // 登录成功,提示成功,修改url
+      //   // 登录成功,提示成功,修改url,保存token
       //   if (status === 200) {
       //     this.$message.success(msg);
       //     this.$router.push({
