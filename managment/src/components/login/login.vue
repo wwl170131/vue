@@ -1,16 +1,16 @@
 <template>
-<div class="login_wrap">
-  <el-form label-position="top" label-width="80px" :model="formData" class="login_form">
-    <h2>用户登录</h2>
-    <el-form-item label="用户名">
-      <el-input v-model="formData.username"></el-input>
-    </el-form-item>
-    <el-form-item label="密码">
-      <el-input v-model="formData.password" type="password"></el-input>
-    </el-form-item>
-    <el-button @click="user_login()" type="primary" class="login_btn">登录</el-button>
-  </el-form>
-</div>
+  <div class="login_wrap">
+    <el-form label-position="top" label-width="80px" :model="formData" class="login_form">
+      <h2>用户登录</h2>
+      <el-form-item label="用户名">
+        <el-input v-model="formData.username"></el-input>
+      </el-form-item>
+      <el-form-item label="密码">
+        <el-input v-model="formData.password" type="password"></el-input>
+      </el-form-item>
+      <el-button @click="user_login()" type="primary" class="login_btn">登录</el-button>
+    </el-form>
+  </div>
 </template>
 
 <script>
@@ -27,15 +27,16 @@ export default {
     // 登录
     async user_login() {
       // axios是异步操作,要让代码看起来像同步操作  看element-UI文档的异步
-      const res = await this.$http.post("login", this.formData)
+      const res = await this.$http.post("login", this.formData);
+      // console.log(res)
       const {
         data,
-        meta: {
-          msg,
-          status
-        }
-      } = res.data
+        meta: { msg, status }
+      } = res.data;
+
       if (status === 200) {
+        const token = data.token;
+        localStorage.setItem("token", token);
         this.$message.success(msg);
         this.$router.push({
           name: "home"

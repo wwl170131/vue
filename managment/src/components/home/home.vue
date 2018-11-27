@@ -108,7 +108,7 @@ export default {
   // newVue之前自动触发beforeCreate
   // 在页面还没有加载之前,先检查是否有token.没有就跳转到login页面
   beforeCreate() {
-    // 获取token
+    // 获取token ------*****要在login中设置token*****
     const token = localStorage.getItem('token');
     if (!token) {
       // 没有token ->登录去
