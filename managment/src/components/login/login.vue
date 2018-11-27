@@ -27,14 +27,13 @@ export default {
     // 登录
     async user_login() {
       // axios是异步操作,要让代码看起来像同步操作  看element-UI文档的异步
-      const res = await this.$http.post("login", this.formData)
+      const res = await this.$http.post("login", this.formData);
+      // console.log(res)
       const {
         data,
-        meta: {
-          msg,
-          status
-        }
-      } = res.data
+        meta: { msg, status }
+      } = res.data;
+
       if (status === 200) {
         // 登录成功,保存token
         localStorage.setItem('token',data.token)
