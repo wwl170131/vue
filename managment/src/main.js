@@ -6,6 +6,7 @@ import router from './router'
 // 引入插件
 import ElementUI from 'element-ui'
 import MyHttpServer from '@/plugins/http.js'
+import moment from 'moment'
 
 import '@/assets/css/reset.css'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -14,6 +15,10 @@ Vue.config.productionTip = false //项目生产环境
 // 注册ElementUI 
 Vue.use(ElementUI)
 Vue.use(MyHttpServer)
+// 全局过滤器,v是过滤器自定义的参数,不需要传参
+Vue.filter('fmtdate',(v)=> {
+  return moment(v).format('YYYY-MM-DD')
+})
 
 /* eslint-disable no-new */
 new Vue({
